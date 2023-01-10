@@ -1,0 +1,30 @@
+<div class="wrapperDiv"  >
+    <h1>All currencies whose change is in a negative trend</h1>
+<table *ngIf="coins" style="text-align: center;">
+	<thead>
+		<tr>
+			<td>Key</td>
+			<td>CurrentExchangeRate</td>
+			<td>CurrentChange</td>
+            <td>Unit</td>
+            <td>LastUpdate</td>
+
+		</tr>
+	</thead>
+	<tbody  *ngFor='let coin of coins'>
+		<tr>
+			<td>{{coin.key}}</td>
+			<td>{{coin.currentExchangeRate}}</td>
+			<td>{{coin.currentChange}}</td>
+            <td>{{coin.unit}}</td>
+            <td>{{coin.lastUpdate}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<div *ngIf="errorMessage" >
+    <p>an error occured</p>
+    <p>error detailes: {{errorMessage}}</p>
+</div>
+
+</div>

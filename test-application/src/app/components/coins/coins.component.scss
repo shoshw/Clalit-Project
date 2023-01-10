@@ -1,0 +1,38 @@
+.wrapperDiv{
+    background-color: beige;
+    height: -webkit-fill-available;
+}
+
+h1{
+    text-align: center;
+    padding-top: 72px;
+    font-family: cursive;
+    font-size: 40px;
+}
+
+table {
+    background-color: beige;
+    border-collapse: collapse;
+    font-family: "Gill Sans", sans-serif;
+    margin: auto;
+}
+table td {
+    padding: 35px;
+    text-align: center;
+}
+
+table thead td {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: cursive;
+}
+
+table tbody td {
+    color: #636363;
+}
+
+table tr:hover {
+    background-color: white;
+}
+
