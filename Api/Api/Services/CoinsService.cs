@@ -13,23 +13,19 @@ namespace Api.Services
     {
         public List<Coin> GetNegetiveCoins()
         {
-            List<Coin> coins = new List<Coin>();
+            Root root = null;
             List<Coin> negativeTrendCoins = new List<Coin>();
             var json_data = string.Empty;
             try
             {
                 json_data = new Data().GetCoinsFromUrl();
-                json_data = json_data.Split('[')[1];
-                json_data = json_data.Split(']')[0];
-                json_data = '[' + json_data + ']';
-
-                coins = JsonConvert.DeserializeObject<List<Coin>>(json_data);
+                root = JsonConvert.DeserializeObject<Root>(json_data);
             }
             catch (Exception e)
             {
                 throw new Exception("api isnt available" + e.Message);
             }
-            negativeTrendCoins = coins.Where(c => c.currentExchangeRate < 1).ToList();
+            negativeTrendCoins = root.exchangeRates.Where(c => c.currentExchangeRate < 1).ToList();
             return negativeTrendCoins;
         }
 
