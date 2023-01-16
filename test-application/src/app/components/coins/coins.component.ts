@@ -7,17 +7,22 @@ import { CoinsService } from 'src/app/services/coins.service';
   styleUrls: ['./coins.component.scss']
 })
 export class CoinsComponent implements OnInit {
-  coins: any;
-  errorMessage:any;
-  constructor(private coinsService: CoinsService) { }
 
+  coins: any;
+  errorMessage: any;
+  nullMessage: any;
+
+  constructor(private coinsService: CoinsService) { }
   ngOnInit(): void {
     this.getFavoriteCities();
   }
 
   getFavoriteCities() {
     this.coinsService.getNegetiveTrendCoins()
-      .subscribe((c: any) => {c.Message==null? this.coins = c.Data:this.errorMessage=c.Message; debugger;});
+      .subscribe((c: any) => {
+         this.coins = c.Data ; this.errorMessage = c.Message;
+        c.Data?.length == 0 ? this.nullMessage = true : this.nullMessage = false;
+      });
   }
 
 }

@@ -11,19 +11,17 @@ namespace Api.Retriver
         public string GetCoinsFromUrl()
         {
             string Url = "https://www.boi.org.il/currency.xml";
-            var w = new WebClient();
+            var webClient = new WebClient();
             var json_data = string.Empty;
             try
             {
-                json_data = w.DownloadString(Url);
+                json_data = webClient.DownloadString(Url);
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception(e.Message);
-
+                throw new Exception("url isn't available");
             }
             return json_data;
-
         }
     }
 }

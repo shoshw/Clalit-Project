@@ -19,12 +19,12 @@ namespace Api.Services
             try
             {
                 json_data = new Data().GetCoinsFromUrl();
-                root = JsonConvert.DeserializeObject<Root>(json_data);
             }
             catch (Exception e)
             {
-                throw new Exception("api isnt available" + e.Message);
+                throw new Exception(e.Message);
             }
+            root = JsonConvert.DeserializeObject<Root>(json_data);
             negativeTrendCoins = root.exchangeRates.Where(c => c.currentExchangeRate < 1).ToList();
             return negativeTrendCoins;
         }

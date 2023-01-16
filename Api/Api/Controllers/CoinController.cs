@@ -12,7 +12,6 @@ namespace Api.Controllers
     [RoutePrefix("api/Coins")]
     public class CoinsController : ApiController
     {
-
         [HttpGet]
         [Route("GetCoins")]
         public Response GetCoins()
@@ -20,9 +19,9 @@ namespace Api.Controllers
             Response result = new Response();
             try
             {
+                result.Data = new CoinsService().GetNegetiveCoins();
                 result.IsSuccess = true;
                 result.StatusCode = HttpStatusCode.OK;
-                result.Data = new CoinsService().GetNegetiveCoins();
             }
             catch (Exception ex)
             {
@@ -31,7 +30,6 @@ namespace Api.Controllers
                 result.StatusCode = HttpStatusCode.Unauthorized;
             }
             return result;
-
         }
     }
 }
