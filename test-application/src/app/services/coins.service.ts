@@ -9,7 +9,6 @@ export class CoinsService {
   constructor(private http: HttpClient) { }
 
   getNegetiveTrendCoins() {
-    debugger;
     return this.http.get(this.Url)
   }
 }
