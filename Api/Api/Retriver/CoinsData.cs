@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Api.Retriver
 {
-    public class Data
+    public class CoinsData
     {
         public string GetCoinsFromUrl()
         {

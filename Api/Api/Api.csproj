@@ -99,7 +99,7 @@
     </Compile>
     <Compile Include="Models\Coin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Retriver\Data.cs" />
+    <Compile Include="Retriver\CoinsData.cs" />
     <Compile Include="Services\CoinsService.cs" />
   </ItemGroup>
   <ItemGroup>

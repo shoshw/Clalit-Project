@@ -14,10 +14,10 @@ export class CoinsComponent implements OnInit {
 
   constructor(private coinsService: CoinsService) { }
   ngOnInit(): void {
-    this.getFavoriteCities();
+    this.getNegetiveTrendCoins();
   }
 
-  getFavoriteCities() {
+  getNegetiveTrendCoins() {
     this.coinsService.getNegetiveTrendCoins()
       .subscribe((c: any) => {
          this.coins = c.Data ; this.errorMessage = c.Message;

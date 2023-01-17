@@ -27,7 +27,7 @@ namespace Api.Controllers
             {
                 result.IsSuccess = false;
                 result.Message = $"Error: {ex.Message} try again";
-                result.StatusCode = HttpStatusCode.Unauthorized;
+                result.StatusCode = HttpStatusCode.InternalServerError;
             }
             return result;
         }

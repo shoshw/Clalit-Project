@@ -18,14 +18,14 @@ namespace Api.Services
             var json_data = string.Empty;
             try
             {
-                json_data = new Data().GetCoinsFromUrl();
+                json_data = new CoinsData().GetCoinsFromUrl();
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
             root = JsonConvert.DeserializeObject<Root>(json_data);
-            negativeTrendCoins = root.exchangeRates.Where(c => c.currentExchangeRate < 1).ToList();
+            negativeTrendCoins = root.exchangeRates.Where(c => c.currentExchangeRate < 0).ToList();
             return negativeTrendCoins;
         }
 
